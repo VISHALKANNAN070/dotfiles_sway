@@ -1,0 +1,33 @@
+[manager]
+
+prepend_keymap = [
+
+  # NAVIGATION
+  { on = [ "g", "d" ], run = "cd ~/Downloads" },
+  { on = [ "g", "c" ], run = "cd ~/.config" },
+  { on = [ "g", "h" ], run = "cd ~" },
+  { on = [ "g", "v" ], run = "cd ~/.local/bin" },
+  { on = [ "g", "p" ], run = "cd ~/Projects" },
+
+  # VISIBILITY
+  { on = [ "." ], run = "hidden toggle" },
+
+  # SELECTION
+  { on = [ "<Space>" ], run = [ "select --toggle", "arrow 1" ] },
+  { on = [ "v" ], run = "visual" },
+  { on = [ "V" ], run = "select --all" },
+  { on = [ "I" ], run = "select --invert" },
+  { on = [ "u" ], run = "select --none" },
+
+  # TERMINAL
+  { on = [ "<Enter>" ], run = "shell" },
+  { on = [ "o" ], run = "shell" },
+  { on = [ "<Backspace>" ], run = "leave" },
+
+  # OPEN WITH
+  { on = [ "m" ], run = "shell 'micro $@'" },
+  { on = [ "c" ], run = "shell 'code $@'" },
+
+  # COPY
+  { on = [ "y" ], run = [ "yank", "shell 'printf \"%s\n\" \"$@\" | wl-copy'" ] },
+]

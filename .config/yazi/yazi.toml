@@ -1,0 +1,17 @@
+[mgr]
+show_hidden = true
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+linemode = "none"
+show_symlink = true
+
+
+
+[opener]
+mpd_play = [
+  # The 'run' command clears the playlist, adds the selected file, and plays it.
+  # The 'block = false' ensures Yazi remains responsive.
+  { run = 'mpc clear; mpc add "$@"; mpc play', desc = "Play with MPD", block = false, for = "unix", orphan = true }
+]

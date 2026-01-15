@@ -1,0 +1,37 @@
+# --- Manager (The file list) ---
+[mgr]
+# Current working directory path
+cwd = { fg = "#f0f8ff" }
+
+# Hovered file (The one your cursor is on)
+hovered = { fg = "#000000", bg = "#f0f8ff" }
+
+# Normal files
+preview_hovered = { underline = true }
+
+# Find/Search mode
+find_keyword = { fg = "#f0f8ff", bg = "#404040", bold = true }
+find_position = { fg = "#000000", bg = "#f0f8ff", bold = true }
+
+# Markers (Selected files)
+marker_copied = { fg = "#f0f8ff", bg = "#404040" }
+marker_cut    = { fg = "#f0f8ff", bg = "#404040" }
+marker_selected = { fg = "#f0f8ff", bg = "#404040" }
+
+# --- Status Bar ---
+[status]
+separator_open = ""
+separator_close = ""
+separator_style = { fg = "#404040", bg = "#404040" }
+
+# Mode (Normal/Insert/Visual) - Black text on White background
+mode_normal = { fg = "#000000", bg = "#f0f8ff", bold = true }
+mode_select = { fg = "#000000", bg = "#f0f8ff", bold = true }
+mode_unset  = { fg = "#000000", bg = "#f0f8ff", bold = true }
+
+# Progress/Permissions part of the bar
+permissions_t = { fg = "#f0f8ff", bg = "#404040" }
+permissions_r = { fg = "#f0f8ff", bg = "#404040" }
+permissions_w = { fg = "#f0f8ff", bg = "#404040" }
+permissions_x = { fg = "#f0f8ff", bg = "#404040" }
+permissions_s = { fg = "#f0f8ff", bg = "#404040" }

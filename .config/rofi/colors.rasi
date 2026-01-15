@@ -1,0 +1,93 @@
+configuration {
+    font: "ZedMono Nerd Font 12";
+    show-icons: true;
+}
+
+* {
+    /* Catppuccin Mocha palette */
+    w-bg:     #1e1e2e;   /* base */
+    w-fg:     #cdd6f4;   /* text */
+    w-accent: #cba6f7;   /* mauve */
+    w-card:   #313244;   /* surface0 */
+
+    background-color: transparent;
+    text-color:       @w-fg;
+    padding:          0px;
+    margin:           0px;
+}
+
+window {
+    width:            45%;
+    height:           420px;
+    border:           2px;
+    border-color:     @w-accent;
+    border-radius:    10px;
+    background-color: @w-bg;
+    padding:          0px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing:  10px;
+}
+
+inputbar {
+    children:         [ prompt, entry ];
+    background-color: @w-card;
+    border-radius:    6px;
+    padding:          4px;
+    text-color:       @w-fg;
+    margin:           5px;
+}
+
+prompt {
+    enabled: true;
+    padding: 0px 10px;
+    text-color: @w-accent;
+}
+
+entry {
+    placeholder: "Search...";
+    placeholder-color: #a6adc8; /* subtext0 */
+    text-color: @w-fg;
+}
+
+listview {
+    columns:       4;
+    lines:         2;
+    spacing:       0px;
+    cycle:         false;
+    dynamic:       true;
+    layout:        vertical;
+    flow:          horizontal;
+    fixed-height:  true;
+}
+
+element {
+    orientation:      vertical;
+    padding:          0px;
+    border-radius:    6px;
+    background-color: @w-card;
+    text-color:       @w-fg;
+    cursor:           pointer;
+}
+
+/* Selection */
+element selected {
+    background-color: @w-accent;
+    text-color:       #1e1e2e;
+}
+
+element-icon {
+    size:             80px;
+    horizontal-align: 0.5;
+    background-color: transparent;
+    cursor:           inherit;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    margin:           0px;
+    cursor:           inherit;
+}
