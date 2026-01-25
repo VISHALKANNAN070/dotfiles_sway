@@ -1,34 +1,37 @@
-### Variables
+#################################
+# Variables
+#################################
 set $mod Mod4
 set $left h
 set $down j
 set $up k
 set $right l
-set $term kitty
+set $term foot
 set $menu fuzzel
 
+#################################
+# Core services
+#################################
 exec_always xsettingsd
+exec_always swaybg -i ~/Pictures/wallpapers/sword.png -m fill
+exec_always /usr/lib/xdg-desktop-portal-wlr
 
-### Wallpaper / compositor
-exec swww-daemon
-
-
-### Bar
+#################################
+# waybar
+#################################
 exec_always sh -c 'pgrep -x waybar || waybar'
 
-### Gaps & borders
+#################################
+# Gaps & borders
+#################################
 smart_gaps on
 gaps inner 8
 gaps outer 0
 default_border pixel 2
 
-### Idle
-# exec swayidle -w \
-#     timeout 300 '~/.local/bin/sleep-when-battery.sh' \
-#     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#     before-sleep '~/.local/bin/sleep-when-battery.sh'
-    
-### Input
+#################################
+# Input
+#################################
 input type:touchpad {
     dwt enabled
     tap enabled
@@ -36,22 +39,26 @@ input type:touchpad {
     middle_emulation enabled
 }
 
-### Key bindings
-
-# Basics
+#################################
+# Keybindings – basics
+#################################
 bindsym $mod+Return exec $term
+bindsym Mod1+F4 exec /home/vishal/.local/bin/powermenu.sh
 bindsym $mod+q kill
-bindsym $mod+d exec fuzzel --config ~/.config/fuzzel/apps.ini
-bindsym $mod+Shift+w exec ~/.local/bin/set-wall.sh
-
-bindsym Mod1+p exec ~/.local/bin/pomodoro.sh
-bindsym Mod1+Shift+p exec pkill -F ~/.cache/pomodoro.pid
+bindsym $mod+d exec $menu --config ~/.config/fuzzel/apps.ini
+bindsym $mod+o exec sh -c 'pkill waybar; waybar &'
+bindsym $mod+p exec pkill waybar
+bindsym $mod+b exec brave
 
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaynag -t warning \
+    -m 'Exit sway?' \
+    -B 'Yes' 'swaymsg exit'
 
+#################################
 # Focus movement
+#################################
 bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
 bindsym $mod+$up    focus up
@@ -62,15 +69,9 @@ bindsym $mod+Down   focus down
 bindsym $mod+Up     focus up
 bindsym $mod+Right  focus right
 
-#Waybar toggle
-bindsym $mod+p exec pkill waybar
-bindsym $mod+o exec sh -c "pkill waybar; waybar &"
-
-#Neovim
-bindsym $mod+g exec kitty -e nvim
-
-
+#################################
 # Move windows
+#################################
 bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$down  move down
 bindsym $mod+Shift+$up    move up
@@ -81,8 +82,9 @@ bindsym $mod+Shift+Down   move down
 bindsym $mod+Shift+Up     move up
 bindsym $mod+Shift+Right  move right
 
-
+#################################
 # Workspaces
+#################################
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -105,25 +107,31 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
+#################################
 # Layout
-bindsym $mod+b splith
+#################################
 bindsym $mod+c splitv
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
-# bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
-#Music Controls
+#################################
+# Music
+#################################
 bindsym $mod+space exec mpc toggle
 
+#################################
 # Scratchpad
+#################################
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+#################################
 # Resize mode
+#################################
 mode "resize" {
     bindsym $left  resize shrink width 10px
     bindsym $down  resize grow   height 10px
@@ -140,56 +148,49 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-### Media / brightness / screenshots
-bindsym --locked XF86AudioMute         exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume  exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioRaiseVolume  exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioMicMute      exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+#################################
+# Media / brightness / screenshots
+#################################
+bindsym --locked XF86AudioMute         exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume  exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume  exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute      exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp   exec brightnessctl set 5%+
 
-bindsym Print exec grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S_grim.png') | wl-copy
+bindsym Print exec grim -g "$(slurp)" - \
+    | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S_grim.png') \
+    | wl-copy
 
-# Lock Screen
-bindsym Mod1+F4 exec ~/.local/bin/powermenu.sh
-
-
-
-
-
+#################################
 # Clipboard history
-exec wl-paste --type text  --watch cliphist store
-exec wl-paste --type image --watch cliphist store
-bindsym $mod+v exec cliphist list | \
-fuzzel --dmenu --config ~/.config/fuzzel/clip.ini | \
-cliphist decode | wl-copy
+#################################
+exec_always wl-paste --type text  --watch cliphist store
+exec_always wl-paste --type image --watch cliphist store
 
+bindsym $mod+v exec cliphist list \
+    | $menu --dmenu --config ~/.config/fuzzel/clip.ini \
+    | cliphist decode \
+    | wl-copy
 
-
-### Extra config
-include /etc/sway/config.d/*
-
-# Floating ncmpcpp mini controller
-for_window [app_id="ncmpcpp-float"] floating enable
-for_window [app_id="ncmpcpp-float"] sticky enable
-for_window [app_id="ncmpcpp-float"] resize set width 420 height 240
-for_window [app_id="ncmpcpp-float"] move position 20 px 20 px
-
-
-### colors
+#################################
+# Colors
+#################################
 set $bg        #1e1e2e
 set $fg        #cdd6f4
 set $inactive  #45475a
 set $accent    #404040
 set $urgent    #f38ba8
 
-# class                 border     background text      indicator child_border
-client.focused          $accent    $accent    $fg        $accent   $accent
-client.focused_inactive $inactive  $bg        $fg        $inactive $inactive
-client.unfocused        $inactive  $bg        $fg        $inactive $inactive
-client.urgent           $urgent    $bg        $fg        $urgent   $urgent
+client.focused          $accent   $accent   $fg        $accent   $accent
+client.focused_inactive $inactive $bg       $fg        $inactive $inactive
+client.unfocused        $inactive $bg       $fg        $inactive $inactive
+client.urgent           $urgent   $bg       $fg        $urgent   $urgent
 
-###font
+#################################
+# Font
+#################################
 font pango:ZedMono Nerd Font 12
-exec /usr/lib/xdg-desktop-portal-kde &
+
+

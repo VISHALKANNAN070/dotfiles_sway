@@ -33,8 +33,7 @@ alias f='yazi'
 alias ff="fastfetch"
 alias disk='df -h | awk "NR==1 || (\$1 ~ /nvme0n1/ && \$6 != \"\")"'
 alias aa="linux-toolkit"
-alias fzf="fzf | xargs -o micro"
-
+alias hxh="mpv --playlist=~/Movies/hxh/playlist.txt"
 mem() {
   ps -eo comm,rss --no-headers |
   awk '
@@ -62,7 +61,7 @@ arrow_color="%F{green}"
 path_color="%F{yellow}"
 
 
-PROMPT=$'%F{blue}${USER}%f %F{green}→%f %F{yellow}%~%f\n%F{green}>%f '
+PROMPT=$'%F{blue}${USER}%f %F{green}=>%f %F{yellow}%~%f\n%F{green}>%f '
 export "MICRO_TRUECOLOR"=1
 export PATH="$HOME/.local/bin:$PATH"
 
