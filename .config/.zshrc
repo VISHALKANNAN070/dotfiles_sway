@@ -48,7 +48,34 @@ mem() {
   head
 }
 
+declare -A pomo_options=(
+  ["work"]="45m"
+  ["short"]="25m"
+  ["mini"]="1m"
+  ["break"]="10m"
+)
 
+pomodoro () {
+  local key="$1"
+  local val="${pomo_options[$key]}"
+
+  if [[ -n "$val" ]]; then
+    # Reduced -S to 30 so 'br' (break) actually shows the rainbow
+    echo "$key" | lolcat -f -S 30 -F 0.5
+    
+    if timer "$val"; then
+      # The { ... } &>/dev/null & part hides the "Job done" message
+      { notify-send -a "Pomodoro" -u critical "Session Finished" "Your '$key' session is done!" ; } &>/dev/null &
+    fi
+  else
+    echo "Usage: pomodoro [work|short|mini|break]"
+  fi
+}
+
+alias 45="pomodoro 'work'"
+alias 25="pomodoro 'short'"
+alias 1="pomodoro 'mini'"
+alias br="pomodoro 'break'"
 
 #Username custom
 autoload -Uz vcs_info
@@ -61,7 +88,7 @@ arrow_color="%F{green}"
 path_color="%F{yellow}"
 
 
-PROMPT=$'%F{blue}${USER}%f %F{green}=>%f %F{yellow}%~%f\n%F{green}>%f '
+PROMPT=$'%F{blue}${USER}%f%F{green}%f %F{yellow}%~%f\n%F{green}>%f '
 export "MICRO_TRUECOLOR"=1
 export PATH="$HOME/.local/bin:$PATH"
 

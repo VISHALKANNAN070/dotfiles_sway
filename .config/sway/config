@@ -6,7 +6,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term foot
+set $term kitty
 set $menu fuzzel
 
 #################################
@@ -15,7 +15,7 @@ set $menu fuzzel
 exec_always xsettingsd
 exec_always swaybg -i ~/Pictures/wallpapers/sword.png -m fill
 exec_always /usr/lib/xdg-desktop-portal-wlr
-
+exec mako
 #################################
 # waybar
 #################################
