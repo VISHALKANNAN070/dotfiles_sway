@@ -1,0 +1,36 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/logo.txt",
+        "type": "file",
+        "padding": {
+            "top": 1,
+            "right": 4
+        }
+    },
+    "display": {
+        "separator": " : "
+    },
+    "modules": [
+        {
+            "type": "os",
+            "format": "{2}" // Only shows the Distro name (e.g., Arch Linux)
+        },
+        {
+            "type": "kernel",
+            "format": "{2}" // Only shows the version number
+        },
+        {
+            "type": "memory",
+            "format": "{1} / {2}" // Shows "Used / Total" only
+        },
+        {
+            "type": "disk",
+            "format": "{1} / {2}" // Shows "Used / Total" only
+        },
+        {
+            "type": "packages",
+            "format": "{1}" // Only shows the number
+        }
+    ]
+}

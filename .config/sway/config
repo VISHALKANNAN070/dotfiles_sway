@@ -13,7 +13,7 @@ set $menu fuzzel
 # Core services
 #################################
 exec_always xsettingsd
-exec_always swaybg -i ~/Pictures/wallpapers/sword.png -m fill
+exec_always swaybg -i /home/vishal/Pictures/wallpapers/quote.png -m fill
 exec_always /usr/lib/xdg-desktop-portal-wlr
 exec mako
 #################################
@@ -24,9 +24,9 @@ exec_always sh -c 'pgrep -x waybar || waybar'
 #################################
 # Gaps & borders
 #################################
-smart_gaps on
+smart_gaps off
 gaps inner 8
-gaps outer 0
+gaps outer 8
 default_border pixel 2
 
 #################################
@@ -183,7 +183,7 @@ set $inactive  #45475a
 set $accent    #404040
 set $urgent    #f38ba8
 
-client.focused          $accent   $accent   $fg        $accent   $accent
+client.focused          $accent   $accent   $fg        $fg   $fg
 client.focused_inactive $inactive $bg       $fg        $inactive $inactive
 client.unfocused        $inactive $bg       $fg        $inactive $inactive
 client.urgent           $urgent   $bg       $fg        $urgent   $urgent

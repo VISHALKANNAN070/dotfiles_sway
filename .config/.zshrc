@@ -91,6 +91,7 @@ path_color="%F{yellow}"
 PROMPT=$'%F{blue}${USER}%f%F{green}%f %F{yellow}%~%f\n%F{green}>%f '
 export "MICRO_TRUECOLOR"=1
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.nvm/versions/node/v24.13.0/bin:$PATH"
 
 # --- Fast NVM lazy load ---
 export NVM_DIR="$HOME/.nvm"
@@ -105,10 +106,11 @@ for cmd in node npm npx nvm; do
 done
 # --- End fast lazy load ---
 
-export EDITOR="micro"
-export VISUAL="micro"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 clear() {
   printf '\033[3J\033c\033[2J'
 }
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
