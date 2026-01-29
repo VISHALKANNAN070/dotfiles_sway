@@ -1,5 +1,4 @@
-@import "colors.css";
-
+@import url("file:///home/vishal/.cache/matugen/waybar-colors.css");
 /* ============================
    Global
    ============================ */
@@ -7,7 +6,7 @@
   border: none;
   border-radius: 0;
   font-family: "ZedMono Nerd Font", monospace;
-  font-size: 16px;
+  font-size: 20px;
   transition: none;
 }
 
@@ -49,7 +48,7 @@ window#waybar {
    ============================ */
 #clock {
   padding: 0 14px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   background: transparent;
   color: @fg;

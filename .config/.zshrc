@@ -33,7 +33,7 @@ alias f='yazi'
 alias ff="fastfetch"
 alias disk='df -h | awk "NR==1 || (\$1 ~ /nvme0n1/ && \$6 != \"\")"'
 alias aa="linux-toolkit"
-alias hxh="mpv --playlist=~/Movies/hxh/playlist.txt"
+alias hxh="mpv --playlist=~/Downloads/hxh/playlist.txt"
 mem() {
   ps -eo comm,rss --no-headers |
   awk '

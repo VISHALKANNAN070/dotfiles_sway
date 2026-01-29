@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 34, /* Slightly taller for breathing room */
+    "height": 40, /* Slightly taller for breathing room */
     "spacing": 0, /* We will handle spacing in CSS */
 
     /* MODULES LEFT */
@@ -65,11 +65,4 @@
         "paused": ""
     }
 },
-"custom/pomo": {
-  "exec": "~/.local/bin/pomo.sh",
-  "interval": 1,
-  "return-type": "json",
-  "on-click": "~/.local/bin/pomo.sh toggle",
-  "on-click-right": "~/.local/bin/pomo.sh reset"
-}
 }

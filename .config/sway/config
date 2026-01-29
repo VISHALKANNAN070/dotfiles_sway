@@ -13,7 +13,7 @@ set $menu fuzzel
 # Core services
 #################################
 exec_always xsettingsd
-exec_always swaybg -i /home/vishal/Pictures/wallpapers/quote.png -m fill
+#exec_always swaybg -i /home/vishal/Pictures/wallpapers/quote.png -m fill
 exec_always /usr/lib/xdg-desktop-portal-wlr
 exec mako
 #################################
@@ -28,6 +28,7 @@ smart_gaps off
 gaps inner 8
 gaps outer 8
 default_border pixel 2
+default_floating_border pixel 2
 
 #################################
 # Input
@@ -49,6 +50,7 @@ bindsym $mod+d exec $menu --config ~/.config/fuzzel/apps.ini
 bindsym $mod+o exec sh -c 'pkill waybar; waybar &'
 bindsym $mod+p exec pkill waybar
 bindsym $mod+b exec brave
+bindsym $mod+Shift+w exec /home/vishal/.local/bin/set-wallpaper
 
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
@@ -183,10 +185,11 @@ set $inactive  #45475a
 set $accent    #404040
 set $urgent    #f38ba8
 
-client.focused          $accent   $accent   $fg        $fg   $fg
-client.focused_inactive $inactive $bg       $fg        $inactive $inactive
-client.unfocused        $inactive $bg       $fg        $inactive $inactive
-client.urgent           $urgent   $bg       $fg        $urgent   $urgent
+client.focused          $fg $bg $fg $fg $fg
+client.focused_inactive $inactive $bg $fg $inactive $inactive
+client.unfocused        $inactive $bg $fg $inactive $inactive
+client.urgent           $urgent $bg $fg $urgent $urgent
+
 
 #################################
 # Font
