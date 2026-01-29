@@ -1,7 +1,7 @@
-background-color=#0d0e10ff
-text-color=#e4e2e5ff
-border-color=#b6c6eeff
-progress-color=over #3b4b6cff
+background-color=#120c15ff
+text-color=#ebdfecff
+border-color=#e2b5ffff
+progress-color=over #bf67ffff
 
 border-size=2
 border-radius=8

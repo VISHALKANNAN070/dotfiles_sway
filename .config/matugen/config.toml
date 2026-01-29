@@ -4,19 +4,19 @@ reload_apps = true
 prefix = "@"
 
 [templates.kitty]
-input_path = '~/.config/matugen/templates/kitty-colors.conf'
+input_path = '~/dotfiles_sway/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.cache/matugen/kitty-colors.conf'
 
 [templates.waybar]
-input_path = '~/.config/matugen/templates/waybar-colors.css'
+input_path = '~/dotfiles_sway/.config/matugen/templates/waybar-colors.css'
 output_path = '~/.cache/matugen/waybar-colors.css'
 
 [templates.fuzzel]
-input_path = '~/.config/matugen/templates/fuzzel-colors.ini'
+input_path = '~/dotfiles_sway/.config/matugen/templates/fuzzel-colors.ini'
 output_path = '~/.cache/matugen/fuzzel-colors.ini'
 
 [templates.mako]
-input_path = '~/.config/matugen/templates/mako-colors.conf'
+input_path = '~/dotfiles_sway/.config/matugen/templates/mako-colors.conf'
 output_path = '~/dotfiles_sway/.config/mako/config'
 
 [templates.nvim]

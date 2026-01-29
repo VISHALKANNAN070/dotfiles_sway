@@ -14,4 +14,12 @@ require("config.keybinds")
 require("config.lazy")
 
 vim.g.mkdp_browser = "brave"
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local path = vim.fn.stdpath("config") .. "/lua/colors/matugen.lua"
+    if vim.fn.filereadable(path) == 1 then
+      ReloadMatugen()
+    end
+  end,
+})
 
