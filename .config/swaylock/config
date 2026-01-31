@@ -1,39 +1,38 @@
 # --- Appearance ---
-color=000000
-font=Google Sans Code NF
+color=131316
 
-# --- Sizing (Make it BIG) ---
+# --- Sizing  ---
 indicator-radius=120
 indicator-thickness=20
 
-# --- The Circle (Idle State - Monochrome) ---
-ring-color=404040
-inside-color=000000
-line-color=000000
-separator-color=000000
+# --- The Circle (Idle State) ---
+ring-color=44474e
+inside-color=131316
+line-color=131316
+separator-color=131316
 
 # --- Text Colors (Idle) ---
-text-color=d0d0d0
-key-hl-color=d0d0d0
-bs-hl-color=d0d0d0
+text-color=e4e2e5
+key-hl-color=b6c6ee
+bs-hl-color=c5c6cf
 
-# --- Verifying State (The "Blue" Flash) ---
-# When you press Enter, this color appears
-ring-ver-color=0055ff
-text-ver-color=0055ff
-inside-ver-color=000000
+# --- Verifying State ---
+ring-ver-color=b6c6ee
+text-ver-color=b6c6ee
+inside-ver-color=131316
 
-# --- Wrong State (Keep it Subtle Grey) ---
-ring-wrong-color=606060
-text-wrong-color=ffffff
-inside-wrong-color=404040
+# --- Wrong State ---
+ring-wrong-color=93000a
+text-wrong-color=e4e2e5
+inside-wrong-color=39393c
 
-# --- Clear State (Backspace) ---
-ring-clear-color=606060
-text-clear-color=ffffff
-inside-clear-color=404040
+# --- Clear State ---
+ring-clear-color=3b4b6c
+text-clear-color=e4e2e5
+inside-clear-color=39393c
 
-# --- Behavior ---
+# --- Behavior  ---
 daemonize=true
 show-failed-attempts=true
 ignore-empty-password=true
+

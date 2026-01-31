@@ -1,0 +1,67 @@
+general {
+    colors = true
+    interval = 5
+    output_format = "i3bar"
+    markup = "pango"
+
+    color_good     = "#b6c6ee"
+    color_degraded = "#e5b9dd"
+    color_bad      = "#ffb4ab"
+}
+
+# ---------- ORDER ----------
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "volume master"
+order += "battery BAT0"
+order += "tztime local"
+
+
+# ---------- NETWORK ----------
+wireless _first_ {
+    format_up =
+        "%essid <span color='#b6c6ee'>%quality</span> <span size='x-large' rise='-2000'></span>"
+    format_down =""
+}
+
+ethernet _first_ {
+    format_up =
+        "Wired <span size='x-large' rise='-2000'>󰊗</span>"
+    format_down = ""
+}
+
+
+# ---------- VOLUME ----------
+volume master {
+    format =
+        "%volume <span size='x-large' rise='-2000'>󰕾</span>"
+    format_muted =
+        "Muted <span size='x-large' rise='-2000'>󰝟</span>"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+
+# ---------- BATTERY ----------
+battery BAT0 {
+    integer_battery_capacity = true
+    low_threshold = 15
+    path = "/sys/class/power_supply/BAT0/uevent"
+    last_full_capacity = true
+    format =
+        "%percentage <span size='x-large' rise='-2000'>%status</span>"
+
+    status_chr  = ""
+    status_bat  = ""
+    status_full = ""
+    status_unk  = "?"
+}
+
+
+# ---------- CLOCK ----------
+tztime local {
+    format =
+        "<span color='#e4e2e5'>%H:%M</span>"
+}
+

@@ -1,53 +1,50 @@
 #!/usr/bin/env bash
 
-# Configuration
+# ---------------- Configuration ----------------
 WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 CACHE_DIR="$HOME/.cache/wallpaper-thumbnails"
+PERSISTENT_WALL="$HOME/.current_wallpaper"
 
-# Create cache directory
+# ---------------- Setup ----------------
 mkdir -p "$CACHE_DIR"
 
-# Get wallpapers
-mapfile -t wallpapers < <(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \))
+# ---------------- Collect wallpapers ----------------
+mapfile -t wallpapers < <(
+    find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \)
+)
 
-# Prepare rofi input
+# ---------------- Build rofi input ----------------
 rofi_input=""
 for wall in "${wallpapers[@]}"; do
     filename=$(basename "$wall")
-    thumb="$CACHE_DIR/$filename.png"
-    
-    # Generate thumbnail using IMv7 'magick'
+    thumb="$CACHE_DIR/${filename%.*}.png"
+
+    # Generate thumbnail if missing
     if [[ ! -f "$thumb" ]]; then
-        # This creates a cropped square preview for a clean grid
-        magick "$wall" -thumbnail 256x256^ -gravity center -extent 256x256 "$thumb"
+        magick "$wall" -thumbnail 480x270^ -gravity center -extent 480x270 "$thumb"
     fi
-    
+
     rofi_input+="$filename\x00icon\x1f$thumb\n"
 done
 
-# Run rofi with gallery view
-# IMPORTANT: -show-icons must be present
+# ---------------- Rofi picker ----------------
 selected_name=$(echo -e "$rofi_input" | rofi -dmenu -i -p "Wallpaper" \
     -show-icons \
-    -theme-str '
-        configuration { show-icons: true; }
-        window { width: 50%; }
-        listview { columns: 3; lines: 3; spacing: 20px; }
-        element { orientation: vertical; padding: 15px; }
-        element-icon { size: 150px; horizontal-align: 0.5; }
-        element-text { horizontal-align: 0.5; vertical-align: 0.5; }
-    ')
+    -theme ~/.config/rofi/config.rasi)
+
+# ---------------- Apply wallpaper ----------------
 if [[ -n "$selected_name" ]]; then
     FULL_PATH="$WALLPAPER_DIR/$selected_name"
 
-    # Kill old instances
-    pkill swaybg
+    # Persistent symlink
+    ln -sf "$FULL_PATH" "$PERSISTENT_WALL"
 
-    # Apply wallpaper
-    swaybg -i "$FULL_PATH" -m fill &
-
-    # Generate theme colors based on the new wallpaper
-    ~/.local/bin/theme-generator.sh "$FULL_PATH"
-    nvim --server /tmp/nvim-matugen --remote-send '<cmd>lua ReloadMatugen()<CR>'
-
+    # Apply wallpaper (Sway preferred)
+    if pgrep -x sway > /dev/null; then
+        swaymsg output "*" bg "$FULL_PATH" fill
+    else
+        pkill swaybg 2>/dev/null
+        swaybg -i "$FULL_PATH" -m fill &
+    fi
 fi
+

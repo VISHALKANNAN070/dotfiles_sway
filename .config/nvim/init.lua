@@ -1,24 +1,17 @@
--- 1. START NEOVIM SOCKET
-pcall(vim.fn.serverstart, "/tmp/nvim-matugen")
-
--- 2. DEFINE THE RELOAD FUNCTION (PUT IT HERE)
-function ReloadMatugen()
-  package.loaded["colors.matugen"] = nil
-  require("colors.matugen")
-  pcall(require("lualine").refresh)
-end
-
--- 3. THEN LOAD THE REST
+-- Load core config
 require("config.options")
 require("config.keybinds")
 require("config.lazy")
 
+-- Browser for markdown preview
 vim.g.mkdp_browser = "brave"
+
+-- Apply dark_blue theme on startup
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    local path = vim.fn.stdpath("config") .. "/lua/colors/matugen.lua"
-    if vim.fn.filereadable(path) == 1 then
-      ReloadMatugen()
+    local ok, _ = pcall(require, "colors.dark_blue")
+    if not ok then
+      vim.notify("colors.dark_blue not found", vim.log.levels.WARN)
     end
   end,
 })
