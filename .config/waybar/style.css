@@ -1,3 +1,12 @@
+@define-color background #131316;
+@define-color foreground #e4e2e5;
+@define-color fg #e4e2e5;
+@define-color fg_muted #c5c6cf;
+@define-color accent #b6c6ee;
+@define-color accent2 #e5b9dd;
+@define-color surface2 #ffb4ab;
+
+
 /* ============================
    Global
    ============================ */
