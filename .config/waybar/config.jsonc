@@ -1,0 +1,61 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34, /* Slightly taller for breathing room */
+    "spacing": 0, /* We will handle spacing in CSS */
+
+    /* MODULES LEFT */
+    "modules-left": ["sway/workspaces","network"],
+
+
+    /* MODULES RIGHT */
+    "modules-right": ["mpd", "pulseaudio", "battery","clock"],
+
+    /* --- CONFIGURATION --- */
+
+    "sway/workspaces": {
+        "format": "{name}"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d  |  %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "network": {
+        "format-wifi": "{essid}  {signalStrength}% ",
+        "format-ethernet": "Wired 󰊗",
+        "format-disconnected": "Offline ⚠",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "max-length": 20
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": "Muted 󰝟",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "scroll-step": 5,
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+"mpd": {
+    "format": "{stateIcon} {title} - {artist}",
+    "max-length": 150,
+    "on-click": "foot -e ncmpcpp",
+    "state-icons": {
+        "playing": "",
+        "paused": ""
+    }
+},
+}

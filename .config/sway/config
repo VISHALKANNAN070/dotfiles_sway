@@ -13,26 +13,8 @@ output * bg ~/.current_wallpaper fill
 exec_always /usr/lib/xdg-desktop-portal-wlr
 exec mako
 
-# i3status 
-bar {
-    position top
-    status_command i3status
-    
-    # Fonts
-    font pango:monospace 12
-
-    colors {
-        statusline #e4e2e5
-        background #131316
-        separator #44474e
-
-        # <border> <background> <text>
-        focused_workspace  #b6c6ee #b6c6ee #131316
-        active_workspace   #44474e #44474e #e4e2e5
-        inactive_workspace #131316 #131316 #c5c6cf
-        urgent_workspace   #93000a #93000a #ffffff
-    }
-}
+# waybar
+exec_always sh -c 'pgrep -x waybar || waybar'
 
 # Gaps & borders
 smart_gaps off
@@ -56,6 +38,8 @@ bindsym $mod+q kill
 bindsym $mod+d exec $menu --config ~/.config/fuzzel/apps.ini
 bindsym $mod+b exec brave
 bindsym $mod+Shift+w exec /home/vishal/.local/bin/set-wallpaper
+bindsym $mod+o exec sh -c 'pkill waybar; waybar &'
+bindsym $mod+p exec pkill waybar
 
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
