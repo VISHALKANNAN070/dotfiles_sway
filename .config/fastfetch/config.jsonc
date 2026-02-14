@@ -4,12 +4,12 @@
         "source": "~/.config/fastfetch/logo.txt",
         "type": "file",
         "padding": {
-            "top": 1,
+            "top": 0,
             "right": 4
         }
     },
     "display": {
-        "separator": " : "
+        "separator": " : ",
     },
     "modules": [
         {

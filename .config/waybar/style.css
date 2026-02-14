@@ -1,10 +1,12 @@
-@define-color background #131316;
-@define-color foreground #e4e2e5;
-@define-color fg #e4e2e5;
-@define-color fg_muted #c5c6cf;
-@define-color accent #b6c6ee;
-@define-color accent2 #e5b9dd;
-@define-color surface2 #ffb4ab;
+@define-color background  #0e1a12;
+@define-color foreground  #dde5db;
+@define-color fg           #dde5db;
+@define-color fg_muted     #a8b3a5;
+
+@define-color accent       #6fa96b;  /* moss focus */
+@define-color accent2      #4e7f43;  /* deep moss */
+@define-color surface2     #1e3324;  /* panel / hover */
+
 
 
 /* ============================
@@ -13,7 +15,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "ZedMono Nerd Font", monospace;
+  font-family: "Noto Sans Mono", monospace;
   font-size: 16px;
   transition: none;
 }

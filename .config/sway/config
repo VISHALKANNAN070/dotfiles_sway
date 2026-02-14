@@ -9,7 +9,7 @@ set $menu fuzzel
 
 # Core services
 exec_always xsettingsd
-output * bg ~/.current_wallpaper fill
+exec_always swaybg -i ~/Pictures/wallpapers/forest.jpg -m fill
 exec_always /usr/lib/xdg-desktop-portal-wlr
 exec mako
 
@@ -17,7 +17,7 @@ exec mako
 exec_always sh -c 'pgrep -x waybar || waybar'
 
 # Gaps & borders
-smart_gaps off
+smart_gaps on
 gaps inner 8
 gaps outer 8
 default_border pixel 2
@@ -36,8 +36,6 @@ bindsym $mod+Return exec $term
 bindsym Mod1+F4 exec /home/vishal/.local/bin/powermenu.sh
 bindsym $mod+q kill
 bindsym $mod+d exec $menu --config ~/.config/fuzzel/apps.ini
-bindsym $mod+b exec brave
-bindsym $mod+Shift+w exec /home/vishal/.local/bin/set-wallpaper
 bindsym $mod+o exec sh -c 'pkill waybar; waybar &'
 bindsym $mod+p exec pkill waybar
 
@@ -148,11 +146,12 @@ bindsym $mod+v exec cliphist list \
     | wl-copy
 
 # Colors
-set $bg        #131316
-set $fg        #e4e2e5
-set $inactive  #39393c
-set $focused   #b6c6ee
-set $urgent    #93000a
+set $bg        #0e1a12
+set $fg        #dde5db
+set $inactive  #15261a
+set $focused   #6fa96b
+set $urgent    #8a3b2e
+
 
 # sway borders
 # class                 border    backgr    text    indicator child_border
@@ -163,6 +162,6 @@ client.urgent           $urgent   $urgent   $fg     $urgent   $urgent
 
 
 # Font
-font pango:ZedMono Nerd Font 12
+font pango:Noto Sans Mono 12
 
 

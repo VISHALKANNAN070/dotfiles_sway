@@ -12,9 +12,6 @@ compinit
 # zsh-autocomplete
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-# zoxide
-eval "$(zoxide init zsh)"
-
 # Aliases
 alias c='clear'
 alias q='exit'

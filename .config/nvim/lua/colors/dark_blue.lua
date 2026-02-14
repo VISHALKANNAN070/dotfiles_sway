@@ -1,10 +1,11 @@
 local c = {
-  bg       = "#131316",
-  fg       = "#e4e2e5",
-  surface  = "#131316",
-  primary  = "#b6c6ee",
-  secondary= "#c1c6d7",
-  error    = "#ffb4ab",
+ bg        = "#0e1a12",
+fg        = "#dde5db",
+surface   = "#0e1a12",
+primary   = "#6fa96b",
+secondary = "#a8b3a5",
+error     = "#8a3b2e",
+
 }
 
 vim.cmd("highlight clear")

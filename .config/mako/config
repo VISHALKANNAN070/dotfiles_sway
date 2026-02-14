@@ -1,16 +1,16 @@
-background-color=#131316ff
-text-color=#e4e2e5ff
-border-color=#b6c6eeff
-progress-color=over #3b4b6cff
+background-color=#0e1a12ff
+text-color=#dde5dbff
+border-color=#6fa96bff
+progress-color=over #4e7f43ff
 
 border-size=2
 border-radius=2
 default-timeout=5000
-font=ZedMono Nerd Font 10
+font=Noto Sans Mono 10
 padding=10
 margin=10
 width=300
 
 [urgency=high]
-border-color=#ffb4abff
+border-color=#8a3b2eff
 

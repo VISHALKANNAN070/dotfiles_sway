@@ -1,37 +1,37 @@
 # --- Appearance ---
-color=131316
+color=0e1a12
 
-# --- Sizing  ---
+# --- Sizing ---
 indicator-radius=120
 indicator-thickness=20
 
 # --- The Circle (Idle State) ---
-ring-color=44474e
-inside-color=131316
-line-color=131316
-separator-color=131316
+ring-color=1e3324
+inside-color=0e1a12
+line-color=0e1a12
+separator-color=0e1a12
 
 # --- Text Colors (Idle) ---
-text-color=e4e2e5
-key-hl-color=b6c6ee
-bs-hl-color=c5c6cf
+text-color=dde5db
+key-hl-color=6fa96b
+bs-hl-color=a8b3a5
 
 # --- Verifying State ---
-ring-ver-color=b6c6ee
-text-ver-color=b6c6ee
-inside-ver-color=131316
+ring-ver-color=6fa96b
+text-ver-color=6fa96b
+inside-ver-color=0e1a12
 
 # --- Wrong State ---
-ring-wrong-color=93000a
-text-wrong-color=e4e2e5
-inside-wrong-color=39393c
+ring-wrong-color=8a3b2e
+text-wrong-color=e6eee3
+inside-wrong-color=15261a
 
 # --- Clear State ---
-ring-clear-color=3b4b6c
-text-clear-color=e4e2e5
-inside-clear-color=39393c
+ring-clear-color=4e7f43
+text-clear-color=e6eee3
+inside-clear-color=15261a
 
-# --- Behavior  ---
+# --- Behavior ---
 daemonize=true
 show-failed-attempts=true
 ignore-empty-password=true
