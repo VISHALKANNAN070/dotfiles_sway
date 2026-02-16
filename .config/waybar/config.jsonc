@@ -19,24 +19,20 @@
 
     "clock": {
         "format": "{:%H:%M}",
-        "format-alt": "{:%A, %B %d  |  %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+        "format-alt": "{:%A,%B%d | %H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>"
     },
 
     "network": {
-        "format-wifi": "{essid}  {signalStrength}% ",
-        "format-ethernet": "Wired 󰊗",
-        "format-disconnected": "Offline ⚠",
-        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-wifi": "{essid} {signalStrength}%",
+        "format-ethernet": "Wired",
+        "format-disconnected": "Offline",
         "max-length": 20
     },
 
     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-muted": "Muted 󰝟",
-        "format-icons": {
-            "default": ["", ""]
-        },
+        "format": "VOL:{volume}",
+        "format-muted": "Muted",
         "scroll-step": 5,
     },
 
@@ -45,17 +41,12 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-icons": ["", "", "", "", ""]
+        "format": "OFF:{capacity}%",
+        "format-charging": "ON:{capacity}%",
     },
 "mpd": {
-    "format": "{stateIcon} {title} - {artist}",
+    "format": "{title}-{artist}",
     "max-length": 150,
     "on-click": "foot -e ncmpcpp",
-    "state-icons": {
-        "playing": "",
-        "paused": ""
-    }
 },
 }
