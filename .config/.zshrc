@@ -10,8 +10,8 @@ autoload -Uz compinit
 compinit
 
 # zsh-autocomplete
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+zstyle ':completion:*' menu select
 # Aliases
 alias c='clear'
 alias q='exit'

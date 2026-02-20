@@ -1,13 +1,11 @@
-@define-color background  #0e1a12;
-@define-color foreground  #dde5db;
-@define-color fg           #dde5db;
-@define-color fg_muted     #a8b3a5;
+@define-color background  #000000;
+@define-color foreground  #e6e6e6;
+@define-color fg          #e6e6e6;
+@define-color fg_muted    #777777;
 
-@define-color accent       #6fa96b;  /* moss focus */
-@define-color accent2      #4e7f43;  /* deep moss */
-@define-color surface2     #1e3324;  /* panel / hover */
-
-
+@define-color accent      #444444;
+@define-color accent2     #333333;
+@define-color surface2    #1a1a1a;
 
 /* ============================
    Global
@@ -106,3 +104,4 @@ window#waybar {
   color: inherit;
   box-shadow: none;
 }
+

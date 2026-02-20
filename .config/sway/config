@@ -9,10 +9,9 @@ set $menu fuzzel
 
 # Core services
 exec_always xsettingsd
-exec_always swaybg -i ~/Pictures/wallpapers/forest.jpg -m fill
+exec_always swaybg -i ~/Pictures/wallpapers/dio.png -m fill
 exec_always /usr/lib/xdg-desktop-portal-wlr
 exec mako
-
 # waybar
 exec_always sh -c 'pgrep -x waybar || waybar'
 
@@ -146,19 +145,18 @@ bindsym $mod+v exec cliphist list \
     | wl-copy
 
 # Colors
-set $bg        #0e1a12
-set $fg        #dde5db
-set $inactive  #15261a
-set $focused   #6fa96b
-set $urgent    #8a3b2e
-
+set $bg        #000000
+set $fg        #e6e6e6
+set $inactive  #1a1a1a
+set $focused   #444444
+set $urgent    #ff0000
 
 # sway borders
 # class                 border    backgr    text    indicator child_border
 client.focused          $focused  $focused  $bg     $focused  $fg
-client.focused_inactive $inactive $bg       $fg     $inactive $inactive
-client.unfocused        $bg       $bg       $fg     $bg       $bg
-client.urgent           $urgent   $urgent   $fg     $urgent   $urgent
+client.focused_inactive $inactive $bg       $fg     $inactive $fg
+client.unfocused        $bg       $bg       $fg     $bg       $fg
+client.urgent           $urgent   $urgent   $fg     $urgent   $fg
 
 
 # Font

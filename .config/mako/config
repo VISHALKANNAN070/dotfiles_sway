@@ -1,7 +1,7 @@
-background-color=#0e1a12ff
-text-color=#dde5dbff
-border-color=#6fa96bff
-progress-color=over #4e7f43ff
+background-color=#000000ff
+text-color=#e6e6e6ff
+border-color=#333333ff
+progress-color=over #666666ff
 
 border-size=2
 border-radius=2
@@ -12,5 +12,5 @@ margin=10
 width=300
 
 [urgency=high]
-border-color=#8a3b2eff
+border-color=#ff0000ff
 
